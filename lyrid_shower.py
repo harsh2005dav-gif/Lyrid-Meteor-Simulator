@@ -1,6 +1,8 @@
 import pygame
 import random
 import math
+pygame.mixer.init()
+whoosh_sound = pygame.mixer.Sound("whoosh.mp3.mp3")
 
 # 1. Initialize the Environment
 pygame.init()
@@ -19,6 +21,7 @@ class Meteor:
         self.speed = random.uniform(10, 20)
         self.length = random.randint(30, 60)
         self.brightness = 255 # Start bright
+        whoosh_sound.play()
 
     def update(self):
         self.x += math.cos(self.angle) * self.speed
